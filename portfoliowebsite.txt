@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shravani Rajannavar | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:'#effefb',100:'#c8fff4',200:'#91ffea',300:'#53f5db',
+              400:'#20e0c5',500:'#0bbfaa',600:'#0d998b',700:'#107a71',
+              800:'#12615c',900:'#13514c'
+            },
+            surface: {
+              950:'#080d10',900:'#0b1117',800:'#101820',700:'#16202c',
+              600:'#1e2a38',500:'#283646',400:'#334557'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html{scroll-behavior:smooth}
+    body{-webkit-font-smoothing:antialiased}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:#0b1117}
+    ::-webkit-scrollbar-thumb{background:#0d998b;border-radius:4px}
+
+    .grad-text{
+      background:linear-gradient(135deg,#53f5db,#20e0c5,#0bbfaa);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .grad-text-warm{
+      background:linear-gradient(135deg,#f0abfc,#c084fc,#0bbfaa);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+
+    .card{background:#101820;border:1px solid #1e2a38;border-radius:1rem;transition:all .35s ease}
+    .card:hover{border-color:rgba(11,191,170,.35);box-shadow:0 0 30px rgba(11,191,170,.06)}
+
+    .nav-a{position:relative}
+    .nav-a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:#0bbfaa;border-radius:1px;transition:width .25s}
+    .nav-a:hover::after,.nav-a.on::after{width:100%}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    .bar-track{height:5px;background:#1e2a38;border-radius:3px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#0bbfaa,#53f5db);transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+    .bar-fill.go{transform:scaleX(1)}
+
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .bob{animation:bob 3.5s ease-in-out infinite}
+
+    @keyframes ring{0%{box-shadow:0 0 0 0 rgba(11,191,170,.35)}70%{box-shadow:0 0 0 14px rgba(11,191,170,0)}100%{box-shadow:0 0 0 0 rgba(11,191,170,0)}}
+    .ring{animation:ring 2.5s ease-out infinite}
+  </style>
+</head>
+<body class="bg-surface-950 text-slate-300 font-sans">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 inset-x-0 z-50 border-b border-surface-700/60" style="background:rgba(8,13,16,.82);backdrop-filter:blur(14px)">
+    <div class="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
+      <a href="#home" class="text-base font-bold tracking-tight grad-text">SR.</a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="#home" class="nav-a text-[13px] text-slate-400 hover:text-white transition-colors">Home</a>
+        <a href="#about" class="nav-a text-[13px] text-slate-400 hover:text-white transition-colors">About</a>
+        <a href="#skills" class="nav-a text-[13px] text-slate-400 hover:text-white transition-colors">Skills</a>
+        <a href="#achievements" class="nav-a text-[13px] text-slate-400 hover:text-white transition-colors">Achievements</a>
+        <a href="#projects" class="nav-a text-[13px] text-slate-400 hover:text-white transition-colors">Projects</a>
+        <a href="#contact" class="nav-a text-[13px] text-slate-400 hover:text-white transition-colors">Contact</a>
+      </div>
+      <button id="mob" class="md:hidden text-slate-400 hover:text-white"><iconify-icon icon="lucide:menu" width="20"></iconify-icon></button>
+    </div>
+    <div id="mobMenu" class="md:hidden hidden border-t border-surface-700/60 px-5 py-3 flex flex-col gap-2.5">
+      <a href="#home" class="ml text-[13px] text-slate-400 hover:text-white py-1">Home</a>
+      <a href="#about" class="ml text-[13px] text-slate-400 hover:text-white py-1">About</a>
+      <a href="#skills" class="ml text-[13px] text-slate-400 hover:text-white py-1">Skills</a>
+      <a href="#achievements" class="ml text-[13px] text-slate-400 hover:text-white py-1">Achievements</a>
+      <a href="#projects" class="ml text-[13px] text-slate-400 hover:text-white py-1">Projects</a>
+      <a href="#contact" class="ml text-[13px] text-slate-400 hover:text-white py-1">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden px-5">
+    <div class="absolute top-[20%] left-[15%] w-80 h-80 bg-brand-600/8 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-[15%] right-[10%] w-96 h-96 bg-fuchsia-600/5 rounded-full blur-[110px]"></div>
+
+    <div class="relative text-center reveal">
+      <div class="bob inline-flex mb-7">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring">
+          <span class="text-2xl font-extrabold text-white">SR</span>
+        </div>
+      </div>
+      <p class="text-brand-400 text-[11px] font-semibold tracking-[.2em] uppercase mb-4">Welcome to my portfolio</p>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-5">
+        <span class="text-white">Shravani</span><br>
+        <span class="grad-text-warm">Rajannavar</span>
+      </h1>
+      <p class="text-slate-400 text-base sm:text-lg font-light max-w-md mx-auto mb-9 leading-relaxed">
+        Curious learner &amp; aspiring developer building meaningful digital solutions.
+      </p>
+      <div class="flex items-center justify-center gap-3.5 flex-wrap">
+        <a href="#projects" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors">
+          View Work <iconify-icon icon="lucide:arrow-down" width="15"></iconify-icon>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 border border-surface-500 hover:border-brand-500/60 text-slate-300 hover:text-white text-sm font-medium px-6 py-3 rounded-xl transition-all">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal">
+        <p class="text-brand-400 text-[11px] font-semibold tracking-[.18em] uppercase mb-1.5">About</p>
+        <h2 class="text-3xl font-bold text-white tracking-tight mb-10">About Me</h2>
+      </div>
+      <div class="grid md:grid-cols-5 gap-9 items-center">
+        <div class="md:col-span-2 reveal">
+          <div class="card p-5">
+            <div class="aspect-square rounded-xl bg-gradient-to-br from-brand-800/30 to-surface-700 flex items-center justify-center">
+              <iconify-icon icon="lucide:user-round" width="56" class="text-brand-500/40"></iconify-icon>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3 reveal">
+          <p class="text-slate-300 leading-relaxed mb-4">
+            Hi, I'm <span class="text-white font-semibold">Shravani Rajannavar</span>. I'm passionate about technology and love turning ideas into functional digital products.
+          </p>
+          <p class="text-slate-400 leading-relaxed mb-7">
+            My core skills lie in Python, MySQL, and web technologies. I enjoy learning new frameworks and exploring areas like cloud computing and cybersecurity to grow as a well-rounded developer.
+          </p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2.5 bg-surface-800 rounded-lg px-3.5 py-2.5">
+              <iconify-icon icon="lucide:map-pin" width="15" class="text-brand-400"></iconify-icon>
+              <span class="text-[13px] text-slate-300">India</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-surface-800 rounded-lg px-3.5 py-2.5">
+              <iconify-icon icon="lucide:graduation-cap" width="15" class="text-brand-400"></iconify-icon>
+              <span class="text-[13px] text-slate-300">Student</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-surface-800 rounded-lg px-3.5 py-2.5">
+              <iconify-icon icon="lucide:code-2" width="15" class="text-brand-400"></iconify-icon>
+              <span class="text-[13px] text-slate-300">Developer</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-surface-800 rounded-lg px-3.5 py-2.5">
+              <iconify-icon icon="lucide:rocket" width="15" class="text-brand-400"></iconify-icon>
+              <span class="text-[13px] text-slate-300">Tech Enthusiast</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 px-5" style="background:linear-gradient(180deg,rgba(11,191,170,.03) 0%,transparent 100%)">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center reveal mb-12">
+        <p class="text-brand-400 text-[11px] font-semibold tracking-[.18em] uppercase mb-1.5">Expertise</p>
+        <h2 class="text-3xl font-bold text-white tracking-tight">Skills</h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-5">
+        <!-- Python -->
+        <div class="card p-6 reveal">
+          <div class="w-11 h-11 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-4">
+            <iconify-icon icon="logos:python" width="26"></iconify-icon>
+          </div>
+          <h3 class="text-[15px] font-semibold text-white mb-1.5">Python</h3>
+          <p class="text-[13px] text-slate-400 leading-relaxed mb-4">Programming, data handling, automation &amp; problem solving.</p>
+          <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          <p class="text-[11px] text-brand-400 mt-1.5 font-medium">85%</p>
+        </div>
+        <!-- MySQL -->
+        <div class="card p-6 reveal">
+          <div class="w-11 h-11 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
+            <iconify-icon icon="logos:mysql-icon" width="26"></iconify-icon>
+          </div>
+          <h3 class="text-[15px] font-semibold text-white mb-1.5">MySQL</h3>
+          <p class="text-[13px] text-slate-400 leading-relaxed mb-4">Database design, complex queries &amp; data management.</p>
+          <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+          <p class="text-[11px] text-brand-400 mt-1.5 font-medium">80%</p>
+        </div>
+        <!-- Web Tech -->
+        <div class="card p-6 reveal">
+          <div class="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
+            <iconify-icon icon="logos:html-5" width="22"></iconify-icon>
+          </div>
+          <h3 class="text-[15px] font-semibold text-white mb-1.5">Web Technologies</h3>
+          <p class="text-[13px] text-slate-400 leading-relaxed mb-4">HTML, CSS, JavaScript &amp; responsive web design.</p>
+          <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+          <p class="text-[11px] text-brand-400 mt-1.5 font-medium">78%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="py-20 px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center reveal mb-12">
+        <p class="text-brand-400 text-[11px] font-semibold tracking-[.18em] uppercase mb-1.5">Credentials</p>
+        <h2 class="text-3xl font-bold text-white tracking-tight">Achievements</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <!-- AWS -->
+        <div class="card p-5 flex items-start gap-4 reveal">
+          <div class="w-12 h-12 rounded-xl bg-[#FF9900]/10 flex items-center justify-center shrink-0">
+            <iconify-icon icon="logos:aws" width="28"></iconify-icon>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-[14px] font-semibold text-white mb-0.5">AWS Certification</h3>
+            <p class="text-[13px] text-slate-400 leading-relaxed">Cloud computing fundamentals from Amazon Web Services.</p>
+            <span class="inline-flex items-center gap-1 mt-2 text-[11px] font-medium text-emerald-400">
+              <iconify-icon icon="lucide:circle-check" width="13"></iconify-icon> Certified
+            </span>
+          </div>
+        </div>
+        <!-- IBM -->
+        <div class="card p-5 flex items-start gap-4 reveal">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
+            <iconify-icon icon="logos:ibm" width="28"></iconify-icon>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-[14px] font-semibold text-white mb-0.5">IBM MySQL Certification</h3>
+            <p class="text-[13px] text-slate-400 leading-relaxed">Database management &amp; SQL proficiency by IBM.</p>
+            <span class="inline-flex items-center gap-1 mt-2 text-[11px] font-medium text-emerald-400">
+              <iconify-icon icon="lucide:circle-check" width="13"></iconify-icon> Certified
+            </span>
+          </div>
+        </div>
+        <!-- Cisco -->
+        <div class="card p-5 flex items-start gap-4 reveal">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">
+            <iconify-icon icon="logos:cisco" width="28"></iconify-icon>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-[14px] font-semibold text-white mb-0.5">Cisco Cyber Security</h3>
+            <p class="text-[13px] text-slate-400 leading-relaxed">Cybersecurity fundamentals &amp; network security by Cisco.</p>
+            <span class="inline-flex items-center gap-1 mt-2 text-[11px] font-medium text-emerald-400">
+              <iconify-icon icon="lucide:circle-check" width="13"></iconify-icon> Certified
+            </span>
+          </div>
+        </div>
+        <!-- Python -->
+        <div class="card p-5 flex items-start gap-4 reveal">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center shrink-0">
+            <iconify-icon icon="logos:python" width="28"></iconify-icon>
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-[14px] font-semibold text-white mb-0.5">Python Certification</h3>
+            <p class="text-[13px] text-slate-400 leading-relaxed">Python programming concepts &amp; practical applications.</p>
+            <span class="inline-flex items-center gap-1 mt-2 text-[11px] font-medium text-emerald-400">
+              <iconify-icon icon="lucide:circle-check" width="13"></iconify-icon> Certified
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-5" style="background:linear-gradient(180deg,rgba(11,191,170,.03) 0%,transparent 100%)">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center reveal mb-12">
+        <p class="text-brand-400 text-[11px] font-semibold tracking-[.18em] uppercase mb-1.5">Portfolio</p>
+        <h2 class="text-3xl font-bold text-white tracking-tight">Projects</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Clothing -->
+        <div class="card overflow-hidden reveal group">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://picsum.photos/seed/fashion-clothes-shop/640/400.jpg" alt="Clothing Shopping Website" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-800 via-surface-800/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-semibold tracking-widest uppercase bg-brand-600/90 text-white px-2.5 py-0.5 rounded-full">Web App</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-[15px] font-semibold text-white mb-1.5">Clothing Shopping Website</h3>
+            <p class="text-[13px] text-slate-400 leading-relaxed mb-4">A responsive e-commerce platform featuring product browsing, cart functionality, and a seamless shopping experience.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">HTML</span>
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">CSS</span>
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">JavaScript</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-[13px] text-brand-400 hover:text-brand-300 font-medium transition-colors">
+              View Project <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
+            </a>
+          </div>
+        </div>
+        <!-- Travel -->
+        <div class="card overflow-hidden reveal group">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://picsum.photos/seed/travel-beach-destination/640/400.jpg" alt="Travel Agency Website" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-800 via-surface-800/20 to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-semibold tracking-widest uppercase bg-brand-600/90 text-white px-2.5 py-0.5 rounded-full">Web App</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-[15px] font-semibold text-white mb-1.5">Travel Agency Website</h3>
+            <p class="text-[13px] text-slate-400 leading-relaxed mb-4">A dynamic website showcasing destinations, tour packages, and booking features for a travel agency.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">HTML</span>
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">CSS</span>
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">JavaScript</span>
+              <span class="text-[10px] font-medium text-brand-300 bg-brand-600/10 px-2 py-0.5 rounded-md">MySQL</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-[13px] text-brand-400 hover:text-brand-300 font-medium transition-colors">
+              View Project <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-5">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center reveal mb-10">
+        <p class="text-brand-400 text-[11px] font-semibold tracking-[.18em] uppercase mb-1.5">Reach out</p>
+        <h2 class="text-3xl font-bold text-white tracking-tight mb-3">Contact Me</h2>
+        <p class="text-[13px] text-slate-400">Got a question or opportunity? I'd love to hear from you.</p>
+      </div>
+      <form id="cForm" class="card p-7 reveal">
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-[11px] font-medium text-slate-400 uppercase tracking-wider mb-1.5">Name</label>
+            <input type="text" required placeholder="Your name" class="w-full bg-surface-700 border border-surface-600 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/25 transition-all">
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-slate-400 uppercase tracking-wider mb-1.5">Email</label>
+            <input type="email" required placeholder="you@email.com" class="w-full bg-surface-700 border border-surface-600 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/25 transition-all">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-[11px] font-medium text-slate-400 uppercase tracking-wider mb-1.5">Subject</label>
+          <input type="text" required placeholder="Subject" class="w-full bg-surface-700 border border-surface-600 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/25 transition-all">
+        </div>
+        <div class="mb-5">
+          <label class="block text-[11px] font-medium text-slate-400 uppercase tracking-wider mb-1.5">Message</label>
+          <textarea rows="4" required placeholder="Your message..." class="w-full bg-surface-700 border border-surface-600 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/25 transition-all resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+          Send Message <iconify-icon icon="lucide:send" width="15"></iconify-icon>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 translate-y-16 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-surface-700 border border-emerald-500/30 rounded-xl px-5 py-3 flex items-center gap-2.5 shadow-xl">
+      <iconify-icon icon="lucide:check-circle-2" width="17" class="text-emerald-400"></iconify-icon>
+      <span class="text-sm text-white font-medium">Message sent successfully!</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-surface-700/60 py-8 px-5">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-[13px] text-slate-500">© 2025 Shravani Rajannavar</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors"><iconify-icon icon="lucide:linkedin" width="17"></iconify-icon></a>
+        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors"><iconify-icon icon="lucide:github" width="17"></iconify-icon></a>
+        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors"><iconify-icon icon="lucide:mail" width="17"></iconify-icon></a>
+        <a href="#" class="text-slate-500 hover:text-brand-400 transition-colors"><iconify-icon icon="lucide:instagram" width="17"></iconify-icon></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mob=document.getElementById('mob'),mobMenu=document.getElementById('mobMenu');
+    mob.onclick=()=>mobMenu.classList.toggle('hidden');
+    document.querySelectorAll('.ml').forEach(l=>l.onclick=()=>mobMenu.classList.add('hidden'));
+
+    const obs=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){t.target.classList.add('show');t.target.querySelectorAll('.bar-fill').forEach(b=>b.classList.add('go'))}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    const secs=document.querySelectorAll('section[id]'),nls=document.querySelectorAll('.nav-a');
+    window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(scrollY>=s.offsetTop-90)c=s.id});nls.forEach(l=>{l.classList.remove('on','text-white');if(l.getAttribute('href')==='#'+c)l.classList.add('on','text-white')})});
+
+    document.getElementById('cForm').onsubmit=e=>{e.preventDefault();const t=document.getElementById('toast');t.classList.remove('translate-y-16','opacity-0','pointer-events-none');t.classList.add('translate-y-0','opacity-100');e.target.reset();setTimeout(()=>{t.classList.add('translate-y-16','opacity-0','pointer-events-none');t.classList.remove('translate-y-0','opacity-100')},2800)};
+  </script>
+</body>
+</html>
